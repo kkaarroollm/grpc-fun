@@ -1,0 +1,46 @@
+
+version: "3.8"
+
+services:
+  trips-api:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    hostname: trips-api
+    container_name: trips-api
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./server:/app
+    networks:
+      - trip-network
+
+  hotel:
+    build:
+      context: ./hotel
+      dockerfile: Dockerfile
+    hostname: hotel
+    container_name: hotel
+    ports:
+      - "50051:50051"
+    volumes:
+      - ./hotel:/app
+    networks:
+      - trip-network
+
+  flight:
+    build:
+      context: ./flight
+      dockerfile: Dockerfile
+    hostname: flight
+    container_name: flight
+    ports:
+      - "50052:50051"
+    volumes:
+      - ./flight:/app
+    networks:
+      - trip-network
+
+networks:
+  trip-network:
+    external: true

@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package hotel;
+
+message HotelRequest {
+  int32 stars = 1;
+  bool all_inclusive = 2;
+  bool room_service = 3;
+  bool airport_shuttle = 4;
+}
+
+message HotelResponse {
+  string hotel_data = 1;
+}
+
+service Hotel {
+  rpc GetHotel(HotelRequest) returns (HotelResponse) {}
+}
