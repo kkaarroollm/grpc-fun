@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+package flight;
+
+message FlightClass {
+  string value = 1;
+}
+
+message FlightFood {
+  string value = 1;
+}
+
+message FlightLuggage {
+  bool checked = 1;
+  int32 quantity = 2;
+}
+
+message FlightRequest {
+  FlightClass class_ = 1;
+  FlightFood food = 2;
+  FlightLuggage luggage = 3;
+}
+
+message FlightResponse {
+  string flight_data = 1;
+}
+
+service Flight {
+  rpc GetFlight(FlightRequest) returns (FlightResponse) {}
+}
