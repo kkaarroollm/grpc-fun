@@ -4,7 +4,6 @@
     - Example payload:
     ```json
        {
-          "booking_id": "60c71eb9-5a9b-49e4-b28c-18d49451f693",
           "flight": {
             "class_": "economy",
             "food": "standard",
